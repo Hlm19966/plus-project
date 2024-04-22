@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <title>plus final project</title>
+</head>
+<body>
+  <div class="whole-screen">
+   <header>
+    <form id="search-form">
+     <input type="search" placeholder="Enter a city"  class="search-form-input" id="search-form-input" required />
+     <input type="submit" value="search" class="search-form-button" />
+    </form>
+   </header>
+<main>
+  <div class="weather-app-data">
+    <div>
+<h1 id="city">paris</h1>
+<p>
+thursday <span class="time">15:13</span>, clear sky
+<br />
+humidity: <span class="humidity">67%</span> , wind: <span class="wind">5.14km\h</span>
+<br />
+</p>
+</div>
+<div class="weather-app-conteiner">
+<div class="weather-app-icon">🌧️</div>
+<div class="weather-app-temerature" id="temperature">12</div>
+ <div class="weather-app-icon-c">°c</div>
+ </div>
+  </main>
+  <footer>
+this project coded by <a href="https://github.com/Hlm19966/" target="_blank">fatemeh,</a>
+<a href="https://github.com/Hlm19966/plus-final-project" target="_blank">
+    sourced on GitHub</a> and <a href="https://app.netlify.com/teams/heli135/overview" target="_blank">hosted on netlify.</a>
+  </footer>
+  <script src="index.js"></script>
+</body>
+</html>
