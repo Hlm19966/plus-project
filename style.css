@@ -84,3 +84,17 @@ footer {
   color: #6E7FF3;
 
 }
+
+.weather-app-forcast{
+ padding-top: 20px;
+ margin: 0 auto;
+ }
+
+ .weather-th {
+
+  color: #6E7FF3;
+ }
+
+ .weather-fotcast {
+  font-size: 17px;
+ }
