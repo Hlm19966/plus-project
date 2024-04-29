@@ -91,10 +91,14 @@ footer {
  }
 
  .weather-th {
-
   color: #6E7FF3;
  }
 
  .weather-fotcast {
   font-size: 17px;
+ }
+
+ .weater-app-js {
+  padding: 9px;
+  border-bottom: 1px solid #f9f7fe;
  }
