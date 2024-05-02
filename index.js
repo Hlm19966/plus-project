@@ -13,6 +13,8 @@ function displyWeather(response) {
     timeElement.innerHTML = formatDate(date);
     let iconElement = document.querySelector("#icons");
     iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
+    
+    getForcast(response.data.city);
 }
 
 
@@ -60,28 +62,41 @@ let searchInput = document.querySelector("#search-form");
 searchInput.addEventListener("submit",handlesearchsubmit);
 
 
+function formatDay(timestamp) {
+    let date =  new Date(timestamp * 1000);
+    let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"]
 
-function displayForcast() {
-let forcastElement = document.querySelector("#forcast");
+    return days[date.getDay()];
+}
 
 
-let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+function getForcast(city) {
+let apiKey = "4c05132bc5ac2f372o09eet8a2bb888d";
+let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayForcast);
+}
+
+
+
+function displayForcast(response) {
+
 let forcastHtml = "";
 
-days.forEach(function (day) {
+response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
 forcastHtml =
 forcastHtml + 
- `
- <div class="weater-app-js">
- <div class="weather-th">${day}</div>
-<img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png" width="37" />
+  `<div class="weater-app-js">
+ <div class="weather-th">${formatDay(day.time)}</div>
+<img src="${day.condition.icon_url}" class="weather-img" />
 <div class="weather-fotcast">
-<span class="weather-app-min"> 13°</span><span class="weather-app-max"> 16°</span></div>
+<span class="weather-app-min"> ${Math.round(day.temperature.maximum)}°</span> <span class="weather-app-max"> ${Math.round(day.temperature.minimum)}°</span></div>
 </div>
-</div>
-    `;
+</div>`;
+    }
   });
 
+let forcastElement = document.querySelector("#forcast");
 forcastElement.innerHTML = forcastHtml;
 }
 

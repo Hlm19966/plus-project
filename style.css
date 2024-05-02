@@ -102,3 +102,8 @@ footer {
   padding: 9px;
   border-bottom: 1px solid #f9f7fe;
  }
+
+ .weather-img {
+  width: 45px;
+ margin-right: 70px;
+ }
